@@ -1,0 +1,15 @@
+{
+    "name": "litespeed/lscache-laravel",
+    "description": "LSCache Implementation for Laravel",
+    "require": {
+        "laravel/framework": "^5.8"
+    },
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Lucas Rolff",
+            "email": "lrolff@litespeedtech.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
