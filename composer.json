@@ -11,5 +11,20 @@
             "email": "lrolff@litespeedtech.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Litespeed\\LSCache\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Litespeed\\LSCache\\LSCacheServiceProvider"
+            ],
+            "aliases": {
+                "LSCache": "Litespeed\\LSCache\\LSCache"
+            }
+        }
+    }
 }
