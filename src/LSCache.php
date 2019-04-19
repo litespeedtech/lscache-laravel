@@ -2,10 +2,12 @@
 
 namespace Litespeed\LSCache;
 
-class LiteSpeedCache
+use Illuminate\Support\Facades\Facade;
+
+class LSCache extends Facade
 {
-    public function purge(string $items)
+    protected static function getFacadeAccessor()
     {
-        return header('X-LiteSpeed-Purge: ' . $items);
+        return LiteSpeedCache::class;
     }
 }
