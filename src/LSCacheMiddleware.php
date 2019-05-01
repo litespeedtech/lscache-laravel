@@ -26,7 +26,11 @@ class LSCacheMiddleware
         $maxage         = config('lscache.default_ttl');
         $cacheability   = config('lscache.default_cacheability');
 
-        $lscache_string = "max-age=$maxage,$cacheability" . ($esi_enabled ? ',esi=on' : '');
+        if($maxage === 0 && $lscache_control === null) {
+          return $response;
+        }
+
+        $lscache_string = "max-age=$maxage,$cacheability" . ($esi_enabled ? ',esi=on' : null);
 
         if(isset($lscache_control)) {
             $lscache_string = str_replace(';', ',', $lscache_control);

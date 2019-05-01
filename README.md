@@ -38,7 +38,11 @@ The package comes with 3 functionalities: Setting the cache control headers for 
 
 ### cache-control
 
-By default the application will start sending the header `X-LiteSpeed-Cache-Control: no-cache, max-age=0`, you'll be able to modify the `config/lscache.php` file to control whether you want to have a default max-age, use public, private as "cacheability" or enable esi (`esi=on`) in the response header. You can also set all 3 of these in your `.env` file as such:
+You'll be able to configure defaults in the `config/lscache.php` file, here you can set the max-age (`default_ttl`), the cacheability (`default_cacheability`) such as public, private or no-cache or enable esi (`esi`) in the `X-LiteSpeed-Cache-Control` response header.
+
+If the `default_ttl` is set to `0`, then we won't return the `X-LiteSpeed-Cache-Control` response header.
+
+You can control the config settings in your `.env` file as such:
 
 - `LSCACHE_ESI_ENABLED` - accepts `true` or `false` to whether you want ESI enabled or not globally; Default `false`
 - `LSCACHE_DEFAULT_TTL` - accepts an integer, this value is in seconds; Default: `0`
