@@ -16,11 +16,11 @@ Require this package using composer.
 composer require litespeed/lscache-laravel
 ```
 
-Laravel uses Auto-Discovery, so you won't have to do any changes to your application, the two middlewares and facade will be available right from the beginning.
+Laravel uses Auto-Discovery, so you won't have to make any changes to your application, the two middlewares and facade will be available right from the beginning.
 
 #### Steps for Laravel >=5.1 and <=5.4
 
-The package can be used for Laravel 5.1 to 5.4 as well, however due to lack of Auto-Discovery, a few additional steps has to be performed.
+The package can be used for Laravel 5.1 to 5.4 as well, however due to lack of Auto-Discovery, a few additional steps have to be performed.
 
 In `config/app.php` you have to add the following code in your `aliases`:
 
