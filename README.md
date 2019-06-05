@@ -18,11 +18,50 @@ composer require litespeed/lscache-laravel
 
 Laravel uses Auto-Discovery, so you won't have to do any changes to your application, the two middlewares and facade will be available right from the beginning.
 
+#### Steps for Laravel >=5.1 and <=5.4
+
+The package can be used for Laravel 5.1 to 5.4 as well, however due to lack of Auto-Discovery, a few additional steps has to be performed.
+
+In `config/app.php` you have to add the following code in your `aliases`:
+
+```
+'aliases' => [
+    ...
+    'LSCache'   => Litespeed\LSCache\LSCache::class,
+],
+```
+
+In `app/Http/Kernel.php` you have to add the two middlewares under `middleware` and `routeMiddleware`:
+
+```
+protected $middleware = [
+    ...
+    \Litespeed\LSCache\LSCacheMiddleware::class,
+    \Litespeed\LSCache\LSTagsMiddleware::class,
+];
+
+protected $routeMiddleware = [
+    ...
+    'lscache' => \Litespeed\LSCache\LSCacheMiddleware::class,
+    'lstags' => \Litespeed\LSCache\LSTagsMiddleware::class,
+];
+```
+
+Copy `lscache.php` to `config/`:
+
+Copy the package `config/lscache.php` file to your `config/` directory.
+
+**important**: Do not add the ServiceProvider under `providers` in `config/app.php`.
+
+#### Steps for Laravel 5.5 and above
+
 You should publish the package configuration, which allows you to set the defaults for the `X-LiteSpeed-Cache-Control` header:
 
 ```
 php artisan vendor:publish --provider="Litespeed\LSCache\LSCacheServiceProvider"
 ```
+
+### Enable CacheLookup for LiteSpeed Cache
 
 To enable CacheLookup for LiteSpeed Cache, you have to include the following code, either on server, vhost or .htaccess level:
 

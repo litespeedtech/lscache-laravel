@@ -18,12 +18,18 @@ class LSTagsMiddleware
     {
         $response = $next($request);
 
+        $lscache_string = null;
+
         if (! $request->isMethodCacheable() || ! $response->getContent()) {
             return $response;
         }
 
         if(isset($lscache_tags)) {
             $lscache_string = str_replace(';', ',', $lscache_tags);
+        }
+
+        if(empty($lscache_string)) {
+            return $response;
         }
 
         if($response->headers->has('X-LiteSpeed-Tag') == false) {
