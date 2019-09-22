@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.3
+- Add Laravel 6 support
+
 ## v1.0.2
 - Allow Laravel 5.1 to 5.5
 - Add documentation for how to use with Laravel >=5.1 and <=5.4
