@@ -176,7 +176,7 @@ class BlogController extends BaseController
 }
 ```
 
-In the above example, we're simply telling it to add an additional header called `X-LiteSpeed-Purge` with the value `/`, this will invalidate the frontpage of the site.
+In the above example, we're simply telling it to add an additional header called `X-LiteSpeed-Purge` with the value `stale,/`, this will invalidate the frontpage of the site.
 
 You can also purge everything by doing:
 
@@ -201,3 +201,30 @@ You even have the possibility to purge a set of public tags and and purge all th
 ```php
 LSCache::purge('pubtag1, pubtag2, pubtag3; private, *');
 ```
+
+LiteSpeed Cache for Laravel 1.1.0 comes with a stale option turned on by default for the `LSCache::purge` function, this can be turned off by using `false` as the second parameter in the `purge` function:
+
+```php
+LSCache::purge('*', false);
+# or
+LSCache::purge('*', $stale=false);
+```
+
+#### Why stale purge matters
+
+By default the way Lscache works in LiteSpeed is by purging an element in the cache, and next request will generate the cached version.
+
+This works great if you're running a fairly low traffic site, however if your application takes let's say 2 seconds to process a given request, all traffic received to this endpoint within those 2 seconds will end up hitting the backend, and all visitors will hit PHP.
+
+By using the `stale,` keyword in front the "key" you're purging, you're telling Lscache to purge the item, but if multiple visitors hit the same endpoint right after each other, only the first visitor will be the one generating the cache item, all remaining vistors will get served the stale cached page until the new cached page is available.
+
+Since a page generation should be rather fast, we're only serving this stale content for maybe a couple of seconds, thus also the reason it's being enabled by default.
+
+If your application cannot work with stale content at all, then you can use `false` or `$stale=false` as the second parameter in the `LSCache::purge()` function to disable this functionality.
+
+You can also purge specific public tags by adding `~s` after the tag, such as:
+
+```php
+LSCache::purge('pubtag1, pubtag2~s, pubtag3; private, privtag1, privtag2', $stale=false);
+```
+Only `pubtag2` will be served stale.

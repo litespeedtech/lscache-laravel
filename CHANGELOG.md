@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.1.0
+- Add stale option for LSCache::purge
+
 ## v1.0.3
 - Add Laravel 6 support
 
