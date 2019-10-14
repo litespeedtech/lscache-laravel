@@ -4,8 +4,16 @@ namespace Litespeed\LSCache;
 
 class LiteSpeedCache
 {
-    public function purge(string $items)
+    public function __construct()
     {
-        return header('X-LiteSpeed-Purge: ' . $items);
+        $this->stale_key = "";
+    }
+
+    public function purge(string $items, bool $stale = true)
+    {
+        if($stale === true) {
+            $this->stale_key = "stale,";
+        }
+        return header('X-LiteSpeed-Purge: ' . $this->stale_key . $items);
     }
 }
