@@ -184,6 +184,12 @@ You can also purge everything by doing:
 LSCache::purge('*');
 ```
 
+One or multiple URIs can be purged by using a comma-separated list:
+
+```php
+LSCache::purge('/blog,/about-us,/');
+```
+
 You can purge individual or multiple tags:
 
 ```php
