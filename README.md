@@ -86,6 +86,7 @@ You can control the config settings in your `.env` file as such:
 - `LSCACHE_ESI_ENABLED` - accepts `true` or `false` to whether you want ESI enabled or not globally; Default `false`
 - `LSCACHE_DEFAULT_TTL` - accepts an integer, this value is in seconds; Default: `0`
 - `LSCACHE_DEFAULT_CACHEABILITY` - accepts a string, you can use values such as `private`, `no-cache`, `public` or `no-vary`; Default: `no-cache`
+- `LSCACHE_GUEST_ONLY` - accepts `true` or `false` to decide if the cache should be enabled for guests only; Defaults to `false`
 
 You set the cache-control header for lscache using a middleware, so we can in our routes do something like this:
 
