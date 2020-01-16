@@ -3,6 +3,7 @@
 namespace Litespeed\LSCache;
 
 use Closure;
+use Illuminate\Support\Str;
 
 class LSCacheMiddleware
 {
@@ -30,10 +31,14 @@ class LSCacheMiddleware
           return $response;
         }
 
-        $lscache_string = "max-age=$maxage,$cacheability" . ($esi_enabled ? ',esi=on' : null);
+        $lscache_string = "max-age=$maxage,$cacheability";
 
         if(isset($lscache_control)) {
             $lscache_string = str_replace(';', ',', $lscache_control);
+        }
+
+        if(Str::contains($lscache_string, 'esi=on') == false) {
+            $lscache_string = $lscache_string  . ($esi_enabled ? ',esi=on' : null);
         }
 
         if($response->headers->has('X-LiteSpeed-Cache-Control') == false) {
