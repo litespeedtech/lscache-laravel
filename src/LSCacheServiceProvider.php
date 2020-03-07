@@ -3,6 +3,8 @@
 namespace Litespeed\LSCache;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Routing\Router;
+use Illuminate\Contracts\Http\Kernel;
 
 class LSCacheServiceProvider extends ServiceProvider
 {
@@ -21,11 +23,12 @@ class LSCacheServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(\Illuminate\Routing\Router $router, \Illuminate\Contracts\Http\Kernel $kernel)
+    public function boot(Router $router, Kernel $kernel)
     {
-        $router->aliasMiddleware('lscache', \Litespeed\LSCache\LSCacheMiddleware::class);
-        $router->aliasMiddleware('lstags', \Litespeed\LSCache\LSTagsMiddleware::class);
-        $kernel->pushMiddleware(\Litespeed\LSCache\LSCacheMiddleware::class);
+        $router->aliasMiddleware('lscache', LSCacheMiddleware::class);
+        $router->aliasMiddleware('lstags', LSTagsMiddleware::class);
+        $kernel->pushMiddleware(LSCacheMiddleware::class);
+
         $this->publishes([
             __DIR__ . '/../config/lscache.php' => config_path('lscache.php'),
         ], 'config');

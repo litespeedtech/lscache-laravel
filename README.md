@@ -183,18 +183,24 @@ You can also purge everything by doing:
 
 ```php
 LSCache::purge('*');
+// or
+LSCache::purgeAll();
 ```
 
 One or multiple URIs can be purged by using a comma-separated list:
 
 ```php
 LSCache::purge('/blog,/about-us,/');
+// or
+LSCache::purgeItems(['/blog', '/about-us', '/']);
 ```
 
 You can purge individual or multiple tags:
 
 ```php
 LSCache::purge('tag=archive, tag=categories');
+// or
+LSCache::purgeTags(['archive', 'categories']);
 ```
 
 Or if you want to purge private cache by tag:
@@ -213,8 +219,10 @@ LiteSpeed Cache for Laravel 1.1.0 comes with a stale option turned on by default
 
 ```php
 LSCache::purge('*', false);
-# or
+// or
 LSCache::purge('*', $stale=false);
+// or
+LSCache::purgeAll(false);
 ```
 
 #### Why stale purge matters
