@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.3.0
+- Add `purgeAll`, `purgeTags` and `purgeItems` functions (Contributed by @piannelli)
+
+## v1.2.1
+- Add Laravel 7 support
+
 ## v1.2.0
 - Add `GUEST_ONLY` option to only cache users that are not authenticated in Laravel
 - Fixing a bug for global ESI to not be set when defining cache control on routes or route groups
