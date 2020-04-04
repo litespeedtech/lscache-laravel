@@ -20,7 +20,7 @@ class LSTagsMiddleware
 
         $lscache_string = null;
 
-        if (!$request->isMethodCacheable() || !$response->getContent()) {
+        if (!in_array($request->getMethod(), ['GET', 'HEAD']) || !$response->getContent()) {
             return $response;
         }
 

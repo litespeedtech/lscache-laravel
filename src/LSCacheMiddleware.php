@@ -20,7 +20,7 @@ class LSCacheMiddleware
     {
         $response = $next($request);
 
-        if (!$request->isMethodCacheable() || !$response->getContent()) {
+        if (!in_array($request->getMethod(), ['GET', 'HEAD']) || !$response->getContent()) {
             return $response;
         }
 
