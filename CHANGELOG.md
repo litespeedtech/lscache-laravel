@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.3.1
+- Remove the use of `isMethodCacheable` to support older versions of Laravel
+
 ## v1.3.0
 - Add `purgeAll`, `purgeTags` and `purgeItems` functions (Contributed by @piannelli)
 
