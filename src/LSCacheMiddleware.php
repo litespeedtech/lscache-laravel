@@ -25,7 +25,7 @@ class LSCacheMiddleware
         }
 
         $esi_enabled    = config('lscache.esi');
-        $maxage         = config('lscache.default_ttl');
+        $maxage         = config('lscache.default_ttl', 0);
         $cacheability   = config('lscache.default_cacheability');
         $guest_only     = config('lscache.guest_only', false);
 
