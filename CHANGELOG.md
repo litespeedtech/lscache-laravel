@@ -1,4 +1,7 @@
 # Changelog
+## 1.3.2
+- Add Laravel 8 support
+- Default max-age to `0` if config ain't published
 
 ## v1.3.1
 - Remove the use of `isMethodCacheable` to support older versions of Laravel
