@@ -243,3 +243,16 @@ You can also purge specific public tags by adding `~s` after the tag, such as:
 LSCache::purge('pubtag1, pubtag2~s, pubtag3; private, privtag1, privtag2', $stale=false);
 ```
 Only `pubtag2` will be served stale.
+
+### Laravel Authentication
+
+If you use authentication in Laravel for handling guests and logged-in users, you'll likely want to also separate the cache for people based on this.
+
+This can be done in the `.htaccess` file simply by using the cache-vary on the Authorization cookie:
+
+```apache
+RewriteEngine On
+RewriteRule .* - [E=Cache-Vary:Authorization]
+```
+
+**Note: In the above example we use `Authorization`, this may have a different name depending on your setup, so it has to be changed accordingly.**
