@@ -2,8 +2,7 @@
     "name": "litespeed/lscache-laravel",
     "description": "LSCache Implementation for Laravel",
     "require": {
-        "illuminate/support": "^5.1|^6|^7|^8",
-        "illuminate/routing": "^5.1|^6|^7|^8"
+        "illuminate/support": "^5.1|^6|^7|^8"
     },
     "license": "GPL-3.0-only",
     "authors": [
