@@ -1,4 +1,7 @@
 # Changelog
+## 1.3.3
+- Drop laravel/framework from composer, use illuminate/support to add support for Lumen installation
+
 ## 1.3.2
 - Add Laravel 8 support
 - Default max-age to `0` if config ain't published
