@@ -1,4 +1,7 @@
 # Changelog
+## 1.3.4
+- Update composer.json to support Laravel 9
+
 ## 1.3.3
 - Drop laravel/framework from composer, use illuminate/support to add support for Lumen installation
 
