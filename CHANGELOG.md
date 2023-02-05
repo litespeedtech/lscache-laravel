@@ -1,4 +1,7 @@
 # Changelog
+## 1.3.5
+- Update composer.json to support Laravel 10
+
 ## 1.3.4
 - Update composer.json to support Laravel 9
 
