@@ -1,4 +1,7 @@
 # Changelog
+## 1.3.6
+- Update composer.json to support Laravel 11
+
 ## 1.3.5
 - Update composer.json to support Laravel 10
 
