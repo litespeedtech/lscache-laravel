@@ -8,7 +8,11 @@
     "authors": [
         {
             "name": "Lucas Rolff",
-            "email": "lrolff@litespeedtech.com"
+            "email": "lucas@lucasrolff.com"
+        },
+        {
+            "name": "LiteSpeed Technologies",
+            "email": "support@litespeedtech.com"
         }
     ],
     "minimum-stability": "dev",

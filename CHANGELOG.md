@@ -1,4 +1,7 @@
 # Changelog
+## 1.3.7
+- Update composer.json to support Laravel 12
+
 ## 1.3.6
 - Update composer.json to support Laravel 11
 
