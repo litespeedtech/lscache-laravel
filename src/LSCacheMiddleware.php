@@ -16,7 +16,7 @@ class LSCacheMiddleware
      * @param  string                   $lscache_control
      * @return mixed
      */
-    public function handle($request, Closure $next, string $lscache_control = null)
+    public function handle($request, Closure $next, ?string $lscache_control = null)
     {
         $response = $next($request);
 
