@@ -14,7 +14,7 @@ class LSTagsMiddleware
      * @param  string $lscache_tags
      * @return mixed
      */
-    public function handle($request, Closure $next, string $lscache_tags = null)
+    public function handle($request, Closure $next, ?string $lscache_tags = null)
     {
         $response = $next($request);
 
