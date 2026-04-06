@@ -1,4 +1,8 @@
 # Changelog
+## 2.0.0
+- Support dynamic laravel route parameters (Thanks to @i1yaz)
+- Enforce minimum PHP version to 5.6 through composer.json
+
 ## 1.8.9
 - Update composer.json to support Laravel 13
 
