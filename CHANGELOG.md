@@ -1,4 +1,7 @@
 # Changelog
+## 1.8.9
+- Update composer.json to support Laravel 13
+
 ## 1.3.8
 - PHP 8.4 compatibility by resolving deprecation messages (Thanks to @maciek-szn)
 
